@@ -1,0 +1,22 @@
+<section>
+    <button type="button" class="btn btn-primary bg-white" id="btn-voltar"
+        style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem;
+        --bs-btn-font-size: .75rem; border: none; color: #000;">Voltar</button>
+    <div class="container">
+        <div class="main">
+            <div class="form-container">
+                <div class="form-header">
+                    <h3>Faça login antes de continuar!</h3>
+                    <p>Não possui um Registro? <a id="link-cadastro" href="cadastro.ejs">Cadastrar</a></p>
+                </div>
+                <form action="/home" method="POST">
+                    <input class="infos" placeholder="Email:" required/>
+                    <input class="infos" placeholder="Senha:" type="password" required/>
+                    <a href="./index.html">
+                        <button class="entrar" type="submit" form="form" value="Submit">Continuar</button>
+                    </a>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>

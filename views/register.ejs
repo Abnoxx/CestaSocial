@@ -1,0 +1,25 @@
+<section>
+    <button type="button" class="btn btn-primary bg-white" id="btn-voltar" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem;
+    --bs-btn-font-size: .75rem; border: none; color: #000;">Voltar</button>
+    <div class="container">
+        <div class="main">
+            <div class="form-container">
+                <div class="form-header">
+                    <h3>Faça o seu cadastro</h3>
+                </div>
+                <form action="/login" method="POST" >
+                    <div id="div-cadastro">
+                        <h2>Cadastro</h2>
+                        <input class="infos" placeholder="Nome:"type="text" required />
+                        <input class="infos" placeholder="CPF:" type="text" required />
+                        <input class="infos" placeholder="Email:" type="text" required />
+                        <input class="infos" placeholder="Senha:" type="password" required />
+                    </div>
+                    <button class="entrar" type="submit" form="form"
+                    value="Submit">Continuar</button>
+                    <p>Já possui uma conta? <a id="link-entrar" href="login.ejs">Entrar</a></p>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
