@@ -9,12 +9,10 @@ const port = process.env.DB_PORT;
 const bodyParser = require('body-parser');
 
 //controller
-cadastroController = require('./controller/cadastroController');
-homeController = require('./controller/homeController');
-loginController = require('./controller/loginController');
+const homeController = require('./controller/homeController');
+
 // model
 const pessoa = require('./models/pessoaModel');
-const usuario = express.Router();
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -39,43 +37,16 @@ app.listen(port,()=>{
 
 // gets & posts
 app.get('/', (req, res) => {
-    res.redirect('/inicio'); 
-});
-
-app.get('/inicio',(req,res)=>{
-    app.set('layout','./layouts/default/inicio');
-    cadastroController.getCadastroUsuario(req,res);
-})
-app.get('/register',(req,res)=>{
-    app.set('layout','./layouts/default/register');
-    cadastroController.getCadastroUsuario(req,res);
-})
-app.post('/register', (req, res) => {
-    res.redirect('/login');
-});
-
-app.get('/login',(req,res)=>{
-    app.set('layout','./layouts/default/login');
-})
-app.post('/login', (req, res) => {
-    cadastroController.cadastrar(req,res);
+    res.redirect('/home'); 
 });
 
 app.get('/home',(req,res)=>{
-    app.set('layout','./layouts/default/home');
-    
+    homeController.getHome(req,res);
 })
-app.post('/home', (req, res) => {
-    
-});
 
 app.get('/', (req, res) => {
     app.set('layout','./layouts/default/');
 });
-
-app.get('/deletar/:id',(req,res)=>{
-    
-})
 
 
 

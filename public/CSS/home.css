@@ -1,13 +1,42 @@
-.container{
-    margin-top: 100px;
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
-
-button.btn{
-    width: 200px;
-    border: 1px solid #000;
-    border-radius: 20px;
+img{
+    width: 100%;
+    height: 100%;
 }
-button.btn:hover{
-    background-color: #000;
-    color: white;
+body{
+    background-image: url("/images/fundoAzul.webp");
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100%;
+}
+#banner{
+    height: 500px;
+    padding-top: 350px;
+    background-image: url("/images/entrega-cestas.jpg");
+    background-size: cover;
+    border-radius: 10px;
+}
+#text-banner{
+    background-color:#fff ;
+    color: #000;
+    border-radius: 5px;
+    width: 60%;
+    font-size: 1.2em;
+}
+.buttons{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#title-sobre{
+    font-size: 2.5em;
+    font-weight: bold;
+}
+#title-local{
+    font-size: 2.5em;
+    font-weight: bold;
 }
