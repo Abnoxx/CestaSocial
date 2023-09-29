@@ -10,7 +10,7 @@ const bodyParser = require('body-parser');
 
 //controller
 const homeController = require('./controller/homeController');
-
+const doarController = require('./controller/doarController');
 // model
 const pessoa = require('./models/pessoaModel');
 
@@ -44,8 +44,8 @@ app.get('/home',(req,res)=>{
     homeController.getHome(req,res);
 })
 
-app.get('/', (req, res) => {
-    app.set('layout','./layouts/default/');
+app.get('/doar', (req, res) => {
+    doarController.getDoar(req,res);
 });
 
 
