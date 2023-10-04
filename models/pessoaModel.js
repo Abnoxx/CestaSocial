@@ -23,4 +23,4 @@ const pessoa = database.sequelize.define('pessoa',{
     }
 })
 
-module.exports = pessoa;
+module.exports = pessoa,Sequelize;
