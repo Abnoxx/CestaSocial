@@ -1,4 +1,4 @@
-require('dotenv').config();
+require('dotenv').config()
 
 //variáveis
 const express = require("express");
@@ -6,12 +6,13 @@ const expressLayouts = require("express-ejs-layouts");
 const session = require('express-session');
 const app = express();
 const path = require('path');
-const port = process.env.DB_PORT;
+const port = process.env.PORT;
 const bodyParser = require('body-parser');
 
 //controller
 const homeController = require('./controller/homeController');
-const doarController = require('./controller/doarController');
+const cadastroController = require('./controller/cadastroController');
+const loginController = require('./controller/loginController');
 // model
 const pessoa = require('./models/pessoaModel');
 
@@ -31,23 +32,33 @@ app.use(session({
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(express.static('public'));
 
-//listen
 app.listen(port,()=>{
     console.log("Server running on: https://localhost:" + port);
 });
 
-// gets & posts
+//registrar
 app.get('/', (req, res) => {
-    res.redirect('/home'); 
+    res.redirect('/usuario/register'); 
 });
 
-app.get('/home',(req,res)=>{
+app.get('/usuario/register', (req, res) => {
+    cadastroController.getCadastro(req,res,app);
+});
+app.post('/usuario/register', (req, res) => {
+    cadastroController.newCadastro(req,res);
+});
+
+//login
+app.get('/usuario/login', (req, res) => {
+    loginController.logar(req,res,app);
+});
+
+app.post('/usuario/login', (req, res) => {
+ 
+    res.redirect('/usuario/login');
+});
+
+//home
+app.get('/home', (req, res) => {
     homeController.getHome(req,res);
-})
-
-app.get('/doar', (req, res) => {
-    doarController.getDoar(req,res);
 });
-
-
-

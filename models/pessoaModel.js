@@ -20,6 +20,10 @@ const pessoa = database.sequelize.define('pessoa',{
     senha:{
         type: database.Sequelize.STRING,
         allowNull:false
+    },
+    confirmSenha:{
+        type: database.Sequelize.STRING,
+        allowNull:false
     }
 })
 

@@ -26,7 +26,15 @@ body{
 form{
     border-radius: 10px;
     background-color: #0DB2AC;
-    height: 340px;
+    height: 450px;
+    width: 500px;
+}
+.info-pessoa1{
+    
+}
+.inputs{
+    width: 200px;
+    margin: 5px;
 }
 #descricao{
     width: 80%;
@@ -40,11 +48,14 @@ form{
 }
 .div-textarea{
     width: 100%;
-    height: 40%;
+    height: 20%;
 }
 textarea{
     border-radius: 5px;
 }
-.checkbox{
-    margin: 10px;
+.btn{
+    margin: 5px;
+}
+.input-group{
+    width: 350px;
 }

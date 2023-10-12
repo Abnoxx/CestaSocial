@@ -4,14 +4,46 @@
             <div class="div-descricao">
                 <form action="/doado" method="POST">
                     <div id="text-descricao">
-                        Descreva o conteúdo da sua cesta básica!
+                        Cadstro de cesta básica!
                     </div>
-                    <div class="div-textarea">
-                        <textarea placeholder="Descreva:"  name="descricao" id="descricao" cols="30" rows="10"></textarea>
-                    </div>
-                    <div class="checkbox"><input type="checkbox" required/>Eu irei ao Projeto Social Tiago Felipe para doar esta cesta básica!</div>
+                    <div class="info-pessoa1">
+                        <div class="input-group input-group-sm mb-3">
+                            <span class="input-group-text" id="inputGroup-sizing-sm">Nome:</span>
+                            <input name="nome" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" required>
+                        </div>
+                        <div class="input-group input-group-sm mb-3">
+                            <span class="input-group-text" id="inputGroup-sizing-sm">CPF:</span>
+                            <input name="cpf" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" required>
+                        </div>
+                        <div class="input-group input-group-sm mb-3">
+                            <span class="input-group-text" id="inputGroup-sizing-sm">Endereço:</span>
+                            <input name="endereco" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" required>
+                        </div>
+                        <div class="input-group input-group-sm mb-3">
+                            <span class="input-group-text" id="inputGroup-sizing-sm">Telefone:</span>
+                            <input name="telefone" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" required>
+                        </div>
+                        <div class="input-group input-group-sm mb-3">
+                            <span class="input-group-text" id="inputGroup-sizing-sm">Email:</span>
+                            <input name="email" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" required>
+                        </div>
+
+                        <div class="input-group">
+                            <span class="input-group-text" id="inputGroup-sizing-sm">Descrição:</span>
+                            <textarea class="form-control" aria-label="With textarea"></textarea>
+                          </div>
+                          <div class="input-group mb-3">
+                            <div class="input-group-text">
+                              <input class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input">
+                            </div>
+                          </div>
                     <div class="button">
-                        <button type="submit" class="btn btn-primary">Enviar</button>
+                        <div class="input-group input-group-sm mb-3">
+                            <span class="input-group-text" id="inputGroup-sizing-sm">Senha:</span>
+                            <input name="senha" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" required>
+                        </div>
+                    
+                        <button type="button" class="btn btn-outline-light">Enviar</button>
                     </div>
                 </form>
             </div>
