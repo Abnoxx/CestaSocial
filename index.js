@@ -10,11 +10,12 @@ const port = process.env.PORT;
 const bodyParser = require('body-parser');
 
 //controller
-const homeController = require('./controller/homeController');
-const cadastroController = require('./controller/cadastroController');
-const loginController = require('./controller/loginController');
+const Home = require('./controller/Home');
+const Register = require('./controller/Register');
+const Auth = require('./controller/Auth');
+const Solicitar = require('./controller/Solicitar');
 // model
-const pessoa = require('./models/pessoaModel');
+const Pessoa = require('./models/Pessoa');
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -32,33 +33,34 @@ app.use(session({
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(express.static('public'));
 
-app.listen(port,()=>{
-    console.log("Server running on: https://localhost:" + port);
-});
-
 //registrar
 app.get('/', (req, res) => {
     res.redirect('/usuario/register'); 
 });
 
 app.get('/usuario/register', (req, res) => {
-    cadastroController.getCadastro(req,res,app);
+    Register.getCadastro(req,res,app);
 });
 app.post('/usuario/register', (req, res) => {
-    cadastroController.newCadastro(req,res);
+    Register.newCadastro(req,res);
 });
 
-//login
 app.get('/usuario/login', (req, res) => {
-    loginController.logar(req,res,app);
+    Auth.getLogin(req,res,app);
 });
 
 app.post('/usuario/login', (req, res) => {
- 
-    res.redirect('/usuario/login');
+    Auth.logar(req,res);
 });
 
 //home
-app.get('/home', (req, res) => {
-    homeController.getHome(req,res);
+app.post('/home', (req, res) => {
+    Home.getHome(req,res);
+});
+app.post('/solicitar-cesta', (req, res) => {
+    Solicitar.getSolicitar
+});
+
+app.listen(port,()=>{
+    console.log("Server running on: https://localhost:" + port);
 });
