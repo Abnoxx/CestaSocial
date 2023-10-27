@@ -2,11 +2,12 @@ require('dotenv').config()
 
 //variáveis
 const express = require("express");
+const nodemailer = require('nodemailer');
 const expressLayouts = require("express-ejs-layouts");
 const session = require('express-session');
 const app = express();
 const path = require('path');
-const port = process.env.PORT;
+const port = process.env.DB_PORT;
 const bodyParser = require('body-parser');
 
 //controller
@@ -16,7 +17,7 @@ const Auth = require('./controller/Auth');
 const Solicitar = require('./controller/Solicitar');
 // model
 const Pessoa = require('./models/Pessoa');
-
+const Solicitacao = require('./models/Solicitar');
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 app.set('layout', './layouts/default/index');

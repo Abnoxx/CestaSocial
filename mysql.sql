@@ -1,6 +1,6 @@
 CREATE DATABASE  IF NOT EXISTS `bddoacoes` /*!40100 DEFAULT CHARACTER SET utf8 */;
 USE `bddoacoes`;
--- MySQL dump 10.13  Distrib 8.0.33, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.34, for Win64 (x86_64)
 --
 -- Host: 127.0.0.1    Database: bddoacoes
 -- ------------------------------------------------------
@@ -18,32 +18,31 @@ USE `bddoacoes`;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `pessoa`
+-- Table structure for table `pessoas`
 --
 
-DROP TABLE IF EXISTS `pessoa`;
+DROP TABLE IF EXISTS `pessoas`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `pessoa` (
-  `idpessoa` int(11) NOT NULL,
-  `nome` varchar(45) DEFAULT NULL,
-  `cpf` tinyint(11) DEFAULT NULL,
-  `endereco` varchar(255) DEFAULT NULL,
-  `senha` varchar(255) DEFAULT NULL,
-  `email` varchar(200) DEFAULT NULL,
-  PRIMARY KEY (`idpessoa`),
-  KEY `fk_pessoa_endereco1_idx` (`endereco_idendereco`),
-  CONSTRAINT `fk_pessoa_endereco1` FOREIGN KEY (`endereco_idendereco`) REFERENCES `endereco` (`idendereco`) ON DELETE NO ACTION ON UPDATE NO ACTION
+CREATE TABLE `pessoas` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nome` varchar(255) NOT NULL,
+  `cpf` int(11) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `senha` varchar(255) NOT NULL,
+  `createdAt` datetime NOT NULL,
+  `updatedAt` datetime NOT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `pessoa`
+-- Dumping data for table `pessoas`
 --
 
-LOCK TABLES `pessoa` WRITE;
-/*!40000 ALTER TABLE `pessoa` DISABLE KEYS */;
-/*!40000 ALTER TABLE `pessoa` ENABLE KEYS */;
+LOCK TABLES `pessoas` WRITE;
+/*!40000 ALTER TABLE `pessoas` DISABLE KEYS */;
+/*!40000 ALTER TABLE `pessoas` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -54,3 +53,5 @@ UNLOCK TABLES;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2023-10-25 21:48:18

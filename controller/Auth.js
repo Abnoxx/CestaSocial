@@ -1,5 +1,5 @@
 const login = [];
-const newUser = require("../models/Pessoa");
+const Pessoa = require("../models/Pessoa");
 const crypto = require("crypto");
 
 async function getLogin(req, res, app) {
