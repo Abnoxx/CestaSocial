@@ -1,7 +1,22 @@
-const solicitar = [];
+const db = require("../models/db");
+const Solicitacao = require("../models/Solicitar");
 
-function getSolicitar(req, res) {
-    res.render("layouts/default/solicitar-cesta", { solicitar });
+
+function getSolicitar(req, res, app) {
+    app.set('layout', './layouts/default/solicitar');
+    res.render('layouts/default/solicitar', { erro: null });
 }
 
-module.exports = {getSolicitar};
+ function solicitar(req, res) {
+     const { nome, cpf, telefone, endereco, numeroDependentes, rendaMensal, senha } = req.body;
+
+
+    Solicitacao.create({ nome, cpf, telefone, endereco, numeroDependentes, rendaMensal})
+    .then(() => {
+        res.render("layouts/default/solicitar", { erro: "Solicitacao enviada com sucesso" });
+    })
+ }
+
+
+
+module.exports = { getSolicitar,solicitar };

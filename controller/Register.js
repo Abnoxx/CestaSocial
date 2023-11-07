@@ -1,17 +1,15 @@
-const cadastro = [];
 const Pessoa = require("../models/Pessoa");
 const crypto = require("crypto");
 
 function getCadastro(req, res, app) {
     app.set('layout', './layouts/default/register');
-    res.render('layouts/default/register', { cadastro });
+    res.render('layouts/default/register', { erro: null });
 }
 
-async function newCadastro(req, res) {
-
-    const { nome, cpf, email, confirmSenha } = req.body;
+async function cadastrar(req, res) {
+    const email = req.body.email;
     let senha = req.body.senha;
-    console.log(senha, confirmSenha)
+    const confirmSenha = req.body.confirmSenha;
 
     if (!email || !senha || !confirmSenha) {
         res.render("register", { erro: "Preencha todos os campos" });
@@ -20,14 +18,14 @@ async function newCadastro(req, res) {
     } else if (senha !== confirmSenha) {
         res.render("register", { erro: "As senhas não coincidem" });
     } else {
-        const user = await Pessoa.getEmail(email);
+        const person = await Pessoa.getEmail(email);
 
-        if (user) {
+        if (person) {
             res.render("register", { erro: "Email já cadastrado" });
         } else {
             senha = await crypto.createHash("md5").update(senha).digest("hex");
 
-            Pessoa.create({ nome, cpf, email, senha })
+            Pessoa.create({ email, senha })
                 .then(() => {
                     res.redirect("/usuario/login");
                 })
@@ -39,4 +37,4 @@ async function newCadastro(req, res) {
     }
 }
 
-module.exports = { getCadastro, newCadastro };
+module.exports = { getCadastro, cadastrar };

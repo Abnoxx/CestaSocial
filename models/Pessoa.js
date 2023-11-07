@@ -1,46 +1,32 @@
-const database = require('./db');
-const Pessoa = database.sequelize.define('pessoa',{
-    nome:{
-        type: database.Sequelize.STRING,
-        allowNull:false
+const db = require('./db');
+
+const Pessoa = db.sequelize.define('pessoa', {
+    email: {
+        type: db.Sequelize.STRING 
     },
-    cpf:{
-        type: database.Sequelize.INTEGER,
-        allowNull:false
-    },
-    email:{
-        type: database.Sequelize.STRING,
-        allowNull:false
-    },
-    senha:{
-        type: database.Sequelize.STRING,
-        allowNull:false
+    senha: {
+        type: db.Sequelize.STRING
     }
 });
-
-Pessoa.autenticar = function (nome, cpf, email, senha){
-    return Pessoa.findOne({
-        where:{
-            nome:nome,
-            cpf:cpf,
-            email:email,
-            senha:senha
-        }
-    }).then(function (pessoa){
-        if(pessoa){
-            return pessoa;
-        }
-        return null;
-    }).catch(function (err){
-        console.log("Erro ao autenticar pessoa: " + err);
-    })
-}
+Pessoa.autenticar = function(email, senha) {
+    return Pessoa.findOne({ where: { email: email, senha: senha } })
+        .then(person => {
+            if (person) {
+                return person;
+            } else {
+                return null;
+            }
+        })
+        .catch(error => {
+            throw error;
+        });
+};
 
 Pessoa.getEmail = function(email) {
     return Pessoa.findOne({ where: { email: email } })
-        .then(user => {
-            if (user) {
-                return user;
+        .then(person => {
+            if (person) {
+                return person;
             } else {
                 return null;
             }

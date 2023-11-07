@@ -2,12 +2,11 @@ require('dotenv').config()
 
 //variáveis
 const express = require("express");
-const nodemailer = require('nodemailer');
 const expressLayouts = require("express-ejs-layouts");
 const session = require('express-session');
 const app = express();
 const path = require('path');
-const port = process.env.DB_PORT;
+const port = process.env.PORT;
 const bodyParser = require('body-parser');
 
 //controller
@@ -15,9 +14,8 @@ const Home = require('./controller/Home');
 const Register = require('./controller/Register');
 const Auth = require('./controller/Auth');
 const Solicitar = require('./controller/Solicitar');
-// model
-const Pessoa = require('./models/Pessoa');
-const Solicitacao = require('./models/Solicitar');
+
+//configurações
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 app.set('layout', './layouts/default/index');
@@ -43,7 +41,7 @@ app.get('/usuario/register', (req, res) => {
     Register.getCadastro(req,res,app);
 });
 app.post('/usuario/register', (req, res) => {
-    Register.newCadastro(req,res);
+    Register.cadastrar(req,res);
 });
 
 app.get('/usuario/login', (req, res) => {
@@ -54,12 +52,15 @@ app.post('/usuario/login', (req, res) => {
     Auth.logar(req,res);
 });
 
-//home
-app.post('/home', (req, res) => {
-    Home.getHome(req,res);
+app.get('/home', (req, res) => {
+    Home.getHome(req,res, app);
 });
-app.post('/solicitar-cesta', (req, res) => {
-    Solicitar.getSolicitar
+
+app.get('/usuario/solicitar', (req, res) => {
+    Solicitar.getSolicitar(req,res,app);
+});
+app.post('/usuario/solicitar', (req, res) => {
+     Solicitar.solicitar(req,res);
 });
 
 app.listen(port,()=>{

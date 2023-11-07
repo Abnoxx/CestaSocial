@@ -1,7 +1,8 @@
-const home = [];
+const Pessoa = require ("../models/Pessoa");
 
-function getHome(req, res) {
-    res.render("layouts/default/home", { home });
+async function getHome(req,res,app) { 
+    app.set('layout', './layouts/default/home');
+    res.render('layouts/default/home');
 }
 
 module.exports = {getHome};
