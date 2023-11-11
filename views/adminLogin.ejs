@@ -1,0 +1,21 @@
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg">
+                <form action="/solicitacoes/listagem" method="post">
+                    <h1 class="title">Login Administrador</h1>
+                <div class="form-group">
+                    <input type="password" id="passcode" name="passcode" placeholder="Insira a senha de administrador:" required>
+                </div>
+                <% if (erro) { %>
+                    <p class="erro-mensagem"><%= erro %></p>
+                <% } %>
+                
+                <div class="form-group">
+                    <button type="submit" name="cadastro" class="login-button">Entrar</button>
+                </div>
+            </form>
+            </div>
+        </div>
+    </div>
+</section>

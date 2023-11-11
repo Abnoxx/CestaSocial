@@ -14,6 +14,10 @@ const Home = require('./controller/Home');
 const Register = require('./controller/Register');
 const Auth = require('./controller/Auth');
 const Solicitar = require('./controller/Solicitar');
+const Admin = require('./controller/Admin');
+
+
+const solicitacaos = require('./models/Solicitar');
 
 //configurações
 app.set('views', path.join(__dirname, 'views'));
@@ -62,6 +66,21 @@ app.get('/usuario/solicitar', (req, res) => {
 app.post('/usuario/solicitar', (req, res) => {
      Solicitar.solicitar(req,res);
 });
+
+app.post('/solicitacoes/listagem', function (req,res){
+    solicitacaos.findAll().then(function(solicitacoes){
+        app.set('layout', './layouts/default/listagem');
+        res.render('layouts/default/listagem', {solicitacoes:solicitacoes});
+    });
+});
+
+app.get('/admin/login', (req, res) => {
+    Admin.getAdminLogin(req,res,app);
+});
+app.post('/admin/login', (req, res) => {
+    Admin.adminLogin(req,res);
+});
+
 
 app.listen(port,()=>{
     console.log("Server running on: https://localhost:" + port);

@@ -1,36 +1,59 @@
 <div>
     <ul>
         <h1>Solicitações de Cesta Básica</h1>
-        <% pessoa.forEach(function(pessoas){ %>
-            <div>
-            <div class="item">
-                <h2>Modelo:</h2>
-                <p><%=carro.modelo%></p>
+        <% solicitacoes.forEach(function(solicitacao){ %>
+            <div id="solicitacoes">
+                <div class="item">
+                    <h2>Nome:</h2>
+                    <p>
+                        <%=solicitacao.nome%>
+                    </p>
+                </div>
+                <div class="item">
+                    <h2>CPF:</h2>
+                    <p>
+                        <%=solicitacao.cpf%>
+                    </p>
+                </div>
+                <div class="item">
+                    <h2>Telefone:</h2>
+                    <p>
+                        <%=solicitacao.telefone%>
+                    </p>
+                </div>
+                <div class="item">
+                    <h2>Endereço:</h2>
+                    <p>
+                        <%=solicitacao.endereco%>
+                    </p>
+                </div>
+                <div class="item">
+                    <h2>Número de dependentes:</h2>
+                    <p>
+                        <%=solicitacao.numeroDependentes%>
+                    </p>
+                </div>
+                <div class="item">
+                    <h2>Renda mensal:</h2>
+                    <p>
+                        <%=solicitacao.rendaMensal%>
+                    </p>
+                </div>
+                <div class="item">
+                    <h2>Data:</h2>
+                    <p>
+                        <%=solicitacao.createdAt%>
+                    </p>
+                </div>
+                <div class="button">
+                    <a class="btn-slice" href="/deletar/<%=solicitacao.id%>">
+                        <button type="button" class="btn btn-outline-danger">Concluída</button>
+                    </a>
+                </div>
+
             </div>
-            <div class="item">
-                <h2>Fabricante:</h2>
-                <p><%=carro.fabricante%></p>
-            </div>
-            <div class="item">
-                <h2>Ano:</h2>
-                <p><%=carro.ano%></p>
-            </div>
-            <div class="item">
-                <h2>Placa:</h2>
-                <p><%=carro.placa%></p>
-            </div>
-            <div class="item">
-                <h2>Numero Renavam:</h2>
-                <p><%=carro.numero_renavam%></p>
-            </div>
-            
-            <div class="buttons">
-                <a class="btn-slice" href="/deletar/<%=carro.id%>">
-                    <button type="button" class="btn btn-outline-danger">Deletar</button>
-                </a>
-            </div>
-            </div>
-            
+        </div>
+
         <% }); %>
     </ul>
-</div>
+    </div>

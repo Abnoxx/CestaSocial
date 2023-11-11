@@ -18,7 +18,14 @@ section{
     justify-content: center;
     align-items: center;
 }
-
+.title{
+    font-size: 3em;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 600;
+    color: #007777;
+    display: flex;
+    justify-content: center;
+}
 label{
     font-size: 2em;
     font-family: Arial, Helvetica, sans-serif;
