@@ -9,7 +9,10 @@ const app = express();
 const path = require('path');
 const port = process.env.PORT;
 const bodyParser = require('body-parser');
-// const middleware = require('./middlewares/middlewares');
+
+//middlewares
+const middleware = require('./middlewares/middlewares');
+
 //controller
 const Home = require('./controller/Home');
 const Register = require('./controller/Register');
@@ -36,11 +39,11 @@ app.use(session({
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(express.static('public'));
 //registrar
-app.get('/', (req, res) => {
+app.get('/', middleware.VerificaRotasEspeciais, (req, res) => {
     res.redirect('/usuario/register'); 
 });
 
-app.get('/usuario/register', (req, res) => {
+app.get('/usuario/register', middleware.VerificaRotasEspeciais, (req, res) => {
     Register.getCadastro(req,res,app);
 });
 app.post('/usuario/register', (req, res) => {
@@ -67,12 +70,8 @@ app.post('/usuario/solicitar', (req, res) => {
 });
 
 //listagem
-app.get('/solicitacoes/listagem', (req, res) => {
+app.get('/admin/solicitacoes/listagem', (req, res) => {
     Listagem.getListagem(req,res,app);
-});
-
-app.post('/solicitacoes/listagem', function (req,res){
-    Listagem.postListagem(req,res,app);
 });
 
 app.get('/admin/login', (req, res) => {

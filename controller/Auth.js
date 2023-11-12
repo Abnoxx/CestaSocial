@@ -33,4 +33,10 @@ async function logar(req, res) {
       res.render("login", { erro: "Erro ao autenticar" });
     });
 }
-module.exports = { getLogin, logar };
+
+function deslogar(req, res) {
+  delete req.session.usuario;
+  res.redirect("/usuario/login");
+}
+
+module.exports = { getLogin, logar, deslogar };
