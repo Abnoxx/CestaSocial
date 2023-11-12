@@ -14,4 +14,9 @@ function adminLogin (req, res, app){
     }
 }
 
-module.exports = { getAdminLogin, adminLogin };
+function getListagem(req,res,app){
+    app.set('layout', './layouts/default/listagem');
+    res.render('layouts/default/listagem', { erro: null });
+}
+
+module.exports = { getAdminLogin, adminLogin, getListagem };

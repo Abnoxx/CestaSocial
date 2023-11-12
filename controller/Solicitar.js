@@ -1,4 +1,3 @@
-const db = require("../models/db");
 const Solicitacao = require("../models/Solicitar");
 
 
@@ -8,7 +7,7 @@ function getSolicitar(req, res, app) {
 }
 
  function solicitar(req, res) {
-     const { nome, cpf, telefone, endereco, numeroDependentes, rendaMensal, senha } = req.body;
+     const { nome, cpf, telefone, endereco, numeroDependentes, rendaMensal} = req.body;
 
     if(numeroDependentes <= -1){
         res.render("layouts/default/solicitar", { erro: "Numero de dependentes invalido" });

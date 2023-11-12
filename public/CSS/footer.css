@@ -3,7 +3,28 @@
     padding: 0;
     box-sizing: border-box;
 }
-
 .redes-sociais{
     display: flex;
+}
+a{
+    text-decoration: none;
+}
+.backIcon{
+    width: 50px;
+    height: 50px;
+    background-color: #000000;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+    transition: 0.5s;
+}
+.contact{
+    font-size: 1.2em;
+    margin: 15px;
+}
+h3{
+    font-size: 2.5em;
+    font-weight: bold;
 }
