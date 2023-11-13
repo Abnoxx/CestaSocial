@@ -1,9 +1,8 @@
 <section>
-    <div>
-        <ul>
-            <p id="frase-solic">Solicitações de Cesta Básica</p>
+    <div class="container-fluid">
+        <div class="row">
             <% solicitacoes.forEach(solicitacao => { %>
-                <div id="solicitacoes">
+                <div class="col-lg-4" id="solicitacoes">
                     <div class="item">
                         <h2>Nome:</h2>
                         <p>
@@ -29,7 +28,7 @@
                         </p>
                     </div>
                     <div class="item">
-                        <h2>Número de dependentes:</h2>
+                        <h2>Dependentes:</h2>
                         <p>
                             <%=solicitacao.numeroDependentes%>
                         </p>
@@ -52,9 +51,7 @@
                         </a>
                     </div>
                 </div>
-                <% }); %>
-    </div>
-
-    </ul>
+            <% }); %>
+        </div>
     </div>
 </section>
