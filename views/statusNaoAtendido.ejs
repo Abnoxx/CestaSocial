@@ -1,0 +1,61 @@
+<section>
+    <div class="container-fluid">
+        <div class="row">
+            <%if (solicitacao.status == 0) { %>
+                
+                <% solicitacoes.forEach(solicitacao => { %>
+                    <div class="col-lg-4" id="solicitacoes">
+                        <div class="item">
+                            <h2>Nome:</h2>
+                            <p>
+                                <%=solicitacao.nome%>
+                            </p>
+                        </div>
+                        <div class="item">
+                            <h2>CPF:</h2>
+                            <p>
+                                <%=solicitacao.cpf%>
+                            </p>
+                        </div>
+                        <div class="item">
+                            <h2>Telefone:</h2>
+                            <p>
+                                <%=solicitacao.telefone%>
+                            </p>
+                        </div>
+                        
+                        <div class="item">
+                            <h2>Endereço:</h2>
+                            <p>
+                                <%=solicitacao.endereco%>
+                            </p>
+                        </div>
+                        <div class="item">
+                            <h2>Dependentes:</h2>
+                            <p>
+                                <%=solicitacao.numeroDependentes%>
+                            </p>
+                        </div>
+                        <div class="item">
+                            <h2>Renda Mensal:</h2>
+                            <p>
+                                <%=solicitacao.rendaMensal%>
+                            </p>
+                        </div>
+                        <div class="item">
+                            <h2>Data:</h2>
+                            <p id="criado-em">
+                                <%=solicitacao.createdAt%>
+                            </p>
+                        </div>
+                        <div class="div-button">
+                            <a class="btn-slice" href="infos">
+                                <button type="button" class="button">Ver mais</button>
+                            </a>
+                        </div>
+                    </div>
+                <% }); %>
+            <% }; %>
+        </div>
+    </div>
+</section>

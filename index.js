@@ -68,9 +68,16 @@ app.get('/usuario/solicitar', (req, res) => {
 app.post('/usuario/solicitar', (req, res) => {
      Solicitar.solicitar(req,res);
 });
+app.get('/usuario/solicitacao/info', (req, res) => {
+
+});
+
 
 //listagem
 app.get('/admin/solicitacoes/listagem', (req, res) => {
+    Listagem.getListagem(req,res,app);
+});
+app.post('/admin/solicitacoes/listagem', (req, res) => {
     Listagem.getListagem(req,res,app);
 });
 
@@ -80,6 +87,11 @@ app.get('/admin/login', (req, res) => {
 app.post('/admin/login', (req, res) => {
     Admin.adminLogin(req,res);
 });
+app.get('/admin/solicitacoes/infos/:id', (req, res) => {
+    Listagem.getInfos(req,res,app);
+});
+
+
 app.get('/concluir/:id', Concluir.concluir);
 
 app.listen(port,()=>{

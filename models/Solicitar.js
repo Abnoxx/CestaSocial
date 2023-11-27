@@ -24,6 +24,9 @@ const Solicitacao = db.sequelize.define('solicitacao', {
     rendaMensal: {
         type: db.Sequelize.DOUBLE,
         allowNull: false
+    },
+    status:{
+        type:db.Sequelize.INTEGER
     }
 });
 
