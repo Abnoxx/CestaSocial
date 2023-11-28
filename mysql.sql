@@ -33,6 +33,20 @@ CREATE TABLE `pessoas` (
   `updatedAt` datetime NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `solicitacaos` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nome` varchar(255) NOT NULL,
+  `cpf` varchar(255) NOT NULL,
+  `telefone` varchar(255) NOT NULL,
+  `endereco` varchar(255) NOT NULL,
+  `numeroDependentes` int(11) NOT NULL,
+  `rendaMensal` double NOT NULL,
+  `createdAt` datetime NOT NULL,
+  `updatedAt` datetime NOT NULL,
+  `status` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
