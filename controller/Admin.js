@@ -1,4 +1,4 @@
-const adminPass = 'tfteam2014';
+const Admin = require('../models/Admin');
 
 function getAdminLogin (req, res, app){
     app.set('layout', './layouts/default/adminLogin');
@@ -6,11 +6,11 @@ function getAdminLogin (req, res, app){
 }
 
 function adminLogin (req, res, app){
-    const passcode = req.body.passcode;
-    if(passcode !== adminPass){
+    const passcode = Admin.findOne({ where: { 'senha': req.body.senha } });
+    if(passcode !== Admin.findOne({where: {'senha': req.params.senha}})){
        res.render("adminLogin", { erro: "Senha Incorreta" });
     }else if(passcode === adminPass){
-         res.redirect('admin/solicitacoes/listagem');
+         res.redirect('admin/home');
     }
 }
 
@@ -18,4 +18,9 @@ function getListagem(req,res,app){
     app.set('layout', './layouts/default/listagem');
     res.render('layouts/default/listagem', { erro: null });
 }
-module.exports = { getAdminLogin, adminLogin, getListagem };
+
+function getAdminHome(req,res,app){
+    app.set('layout', './layouts/default/adminHome');
+    res.render('layouts/default/adminHome', { erro: null });
+}
+module.exports = { getAdminLogin, adminLogin, getListagem, getAdminHome };

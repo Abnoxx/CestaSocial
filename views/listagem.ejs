@@ -1,32 +1,35 @@
 <section>
     <div class="container-fluid">
+            <div class="divbtn-listas">
+                <a href="/aceitas">
+                    <button class="btn btn-listas" style="width: 90%;height: 60%;">Ver Aceitas</button>
+                </a>
+            
+                <a href="/negadas">
+                    <button class="btn btn-listas" style="width: 90%;height: 60%;">Ver Negadas</button>
+                </a>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <h1 class="text-center mt-4 mb-4">Pendentes</h1>
+                </div>
+            </div>
         <div class="row">
             <% solicitacoes.forEach(solicitacao => { %>
-                <div class="col-lg-4" id="solicitacoes">
-                    <div class="item">
-                        <h2>Nome:</h2>
-                        <p>
-                            <%=solicitacao.nome%>
-                        </p>
-                    </div>
-                    <div class="item">
-                        <h2>Telefone:</h2>
-                        <p>
-                            <%=solicitacao.telefone%>
-                        </p>
-                    </div>
-                    
-                    <div class="item">
-                        <h2>Endereço:</h2>
-                        <p>
-                            <%=solicitacao.endereco%>
-                        </p>
-                    </div>
+                <div class="col-lg-4 mb-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title">Nome:</h4>
+                            <p class="card-text"><%= solicitacao.nome %></p>
 
-                    <div class="div-button">
-                        <a class="btn-slice" href="/admin/solicitacoes/infos/<%=solicitacao.id%>">
-                            <button type="button" class="button">Ver mais</button>
-                        </a>
+                            <h4 class="card-title">Telefone:</h4>
+                            <p class="card-text"><%= solicitacao.telefone %></p>
+
+                            <h4 class="card-title">Endereço:</h4>
+                            <p class="card-text"><%= solicitacao.endereco %></p>
+
+                            <a href="/admin/solicitacoes/infos/<%= solicitacao.id %>" class="btn btn-details">Ver mais</a>
+                        </div>
                     </div>
                 </div>
             <% }); %>

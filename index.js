@@ -72,6 +72,20 @@ app.get('/usuario/solicitacao/info', (req, res) => {
 
 });
 
+//admin
+app.get('/admin/login', (req, res) => {
+    Admin.getAdminLogin(req,res,app);
+});
+app.post('/admin/login', (req, res) => {
+    Admin.adminLogin(req,res);
+});
+
+app.get('/admin/home', (req, res) => {
+    Admin.getAdminHome(req,res,app);
+});
+app.post('/admin/home', (req, res) => {
+    Admin.getAdminHome(req,res,app);
+});
 
 //listagem
 app.get('/admin/solicitacoes/listagem', (req, res) => {
@@ -81,17 +95,27 @@ app.post('/admin/solicitacoes/listagem', (req, res) => {
     Listagem.getListagem(req,res,app);
 });
 
-app.get('/admin/login', (req, res) => {
-    Admin.getAdminLogin(req,res,app);
-});
-app.post('/admin/login', (req, res) => {
-    Admin.adminLogin(req,res);
-});
+
+//infos
 app.get('/admin/solicitacoes/infos/:id', (req, res) => {
     Listagem.getInfos(req,res,app);
 });
 
 
+//solicitações aceitas
+app.get('/aceitas', (req, res) => {
+    Listagem.getAceitas(req,res,app);
+});
+app.get('/aceitar-solicitacao/:id', Listagem.aceitarSolicitacao);
+
+//solicitações negadas
+app.get('/negadas', (req, res) => {
+    Listagem.getNegadas(req,res,app);
+});
+app.get('/negar-solicitacao/:id', Listagem.negarSolicitacao);
+
+
+//concluir
 app.get('/concluir/:id', Concluir.concluir);
 
 app.listen(port,()=>{

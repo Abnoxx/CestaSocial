@@ -1,69 +1,47 @@
 <section>
     <div class="container">
+        <a href="/admin/solicitacoes/listagem" class="btn btn-voltar">Voltar</a>
         <div class="row">
-            <div class="col-lg">
-                <% solicitacoes.forEach(solicitacao => { %>
-                    <div class="col-lg-4" id="solicitacoes">
-                        <div class="item">
-                            <h2>Nome:</h2>
-                            <p>
-                                <%=solicitacao.nome%>
-                            </p>
-                        </div>
-                        <div class="item">
-                            <h2>Telefone:</h2>
-                            <p>
-                                <%=solicitacao.telefone%>
-                            </p>
-                        </div>
-                        <div class="item">
-                            <h2>Endereço:</h2>
-                            <p>
-                                <%=solicitacao.endereco%>
-                            </p>
-                        </div>
-                        <div class="item">
-                            <h2>Nome:</h2>
-                            <p>
-                                <%=solicitacao.cpf%>
-                            </p>
-                        </div>
-                        <div class="item">
-                            <h2>Nome:</h2>
-                            <p>
-                                <%=solicitacao.telefone%>
-                            </p>
-                        </div>
-                        <div class="item">
-                            <h2>Nome:</h2>
-                            <p>
-                                <%=solicitacao.numeroDependentes%>
-                            </p>
-                        </div>
-                        <div class="item">
-                            <h2>Nome:</h2>
-                            <p>
-                                <%=solicitacao.rendaMensal%>
-                            </p>
-                        </div>
-                        <div class="item">
-                            <h2>Data:</h2>
-                            <p id="criado-em">
-                                <%=solicitacao.createdAt%>
-                            </p>
-                        </div>
-                        <div class="div-button">
-                            <a class="btn-slice" href="statusAtendido">
-                                <button type="button" class="button">Atendido</button>
-                            </a>
-                        </div>
-                        <div class="div-button">
-                            <a class="btn-slice" href="statusNaoAtendido">
-                                <button type="button" class="button">Não atendido</button>
-                            </a>
+            <div class="col-lg-8" id="solicitacoes">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Informações da Solicitação</h5>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">
+                                <strong>Nome:</strong>
+                                <span><%= solicitacao.nome %></span>
+                            </li>
+                            <li class="list-group-item">
+                                <strong>Telefone:</strong>
+                                <span><%= solicitacao.telefone %></span>
+                            </li>
+                            <li class="list-group-item">
+                                <strong>Endereço:</strong>
+                                <span><%= solicitacao.endereco %></span>
+                            </li>
+                            <li class="list-group-item">
+                                <strong>CPF:</strong>
+                                <span><%= solicitacao.cpf %></span>
+                            </li>
+                            <li class="list-group-item">
+                                <strong>Dependentes:</strong>
+                                <span><%= solicitacao.numeroDependentes %></span>
+                            </li>
+                            <li class="list-group-item">
+                                <strong>Renda Mensal:</strong>
+                                <span><%= solicitacao.rendaMensal %></span>
+                            </li>
+                            <li class="list-group-item">
+                                <strong>Data:</strong>
+                                <span><%= solicitacao.createdAt %></span>
+                            </li>
+                        </ul>
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-3">
+                            <a href="/aceitar-solicitacao/<%= solicitacao.id %>" class="btn btn-success me-md-2" role="button">Aceitar</a>
+                            <a href="/negar-solicitacao/<%= solicitacao.id %>" class="btn btn-danger" role="button">Negar</a>
                         </div>
                     </div>
-                <% }); %>
+                </div>
             </div>
         </div>
     </div>

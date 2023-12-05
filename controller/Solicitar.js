@@ -14,15 +14,15 @@ function getSolicitar(req, res, app) {
         return;
     }
     else if(telefone.length <=8 && telefone.length >= 10){
-        res.render("layouts/default/solicitar", { erro: "Número de caracteres inválido" });
+        res.render("layouts/default/solicitar", { erro: "Número de caracteres de telefone inválido" });
     }
     else if(cpf.length<=10 && cpf.length >= 12){
-        res.render("layouts/default/solicitar", { erro: "Número de caracteres inválido" });
+        res.render("layouts/default/solicitar", { erro: "Número de caracteres do cpf inválido" });
     }
     else{
         Solicitacao.create({ nome, cpf, telefone, endereco, numeroDependentes, rendaMensal})
         .then(() => {
-            res.render("layouts/default/solicitar", { erro: "Solicitação enviada com sucesso" });
+            res.redirect("/home");
         })
     }
 }

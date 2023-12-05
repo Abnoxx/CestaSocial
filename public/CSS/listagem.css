@@ -5,6 +5,10 @@
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
 }
+h2{
+    font-size:1.4em ;
+    font-weight: bold;
+}
 img{
     width: 100%;
     height: 100%;
@@ -19,11 +23,23 @@ html, body{
 }
 section{
     width: 100%;
+    min-height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
     background-color: #00bbbb;
+    padding: 10px;
+}
+.tudo{
+    height: 50vh;
+}
+#organizar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
 }
 .title{
     font-size: 3em;
@@ -42,16 +58,6 @@ label{
     justify-content: center;
 }
 
-input{
-    width: 300px;
-    height: 50px;
-    border-radius: 10px;
-    border: 2px solid #00bbbb;
-    color: #00bbbb !important;
-    background-color: transparent;
-    padding: 10px;
-    text-align: center;
-}
 #solicitacoes{
     background-color: #009191;
     border: 1px solid #fff;
@@ -60,6 +66,8 @@ input{
     align-items: center;
     justify-content: center;
     padding: 10px;
+    border-radius: 10px;
+    margin: 5px;
 }
 .item{
     width: 100%;
@@ -67,40 +75,44 @@ input{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #00bbbb;
-    border-radius: 20px;
+    border-radius: 10px;
     margin: 10px;
     padding: 10px;
 }
-p{
-    margin-right: 10px;
-    margin-top: 10px;
-    font-size: 1.5em;
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: 600;
-    color: #fff;
-    display: flex;
-    justify-content: center;
+.card-title{
+    font-size: 1.3em;
+    font-weight: bold;
+    color: #000000;
 }
-#criado-em{
-    font-size: 0.9em;
+.card{
+    border-radius:10px ;
+}
+.card-body{
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+}
+.divbtn-listas{
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    margin-bottom: 10px;
+}
+
+.btn-listas{
+    background-color: #fff;
+    box-shadow: 0px 0px 10px 0px rgba(0,0,1,1);
+    margin: 10px;
+}
+.btn-voltar{
+    background-color: #fff;
+    box-shadow: 0px 0px 10px 0px rgba(0,0,1,1);
+    margin: 10px;
+    align-items: center;
+    font-size:1em;
 }
 input::placeholder {
     color: #00bbbb;
 }
-.button{
-    width: 100px;
-    height: 50px;
-    color: #00bbbb;
-    background-color: #fff;
-    border-radius: 10px;
-    font-size: 1em;
-}
-.button:hover{
-    background-color:#00bbbb;
-    color: #fff;
-    transition: 0.2s;
-}
+
 .form-group{
     margin: 30px;
     display: flex;
@@ -136,9 +148,9 @@ form{
     justify-content: center;
     align-items: center;
 }
-.btn{
-    width: 100px;
-    height: 50px;
+.btn-details{
+    width: 10vw;
+    height: 5vh;
     color: #00bbbb;
     background-color: #fff;
     border-radius: 10px;
@@ -150,4 +162,14 @@ form{
     border-color: #009999;
     color: #fff;
     transition: 0.2s;
+}
+#div-backbutton{
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    margin: 5px;
+    font-size: 100%;
+}
+#backbutton{
+    text-align: center;
 }
