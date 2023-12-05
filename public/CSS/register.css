@@ -61,13 +61,15 @@ label{
     font-size:1.4em ;
 }
 .login-button{
-    width: 18vw;
+    width: 80%;
     height: 8vh;
     color: #ffffff;
     background-color: #009999;
     border-radius: 10px;
     border: 2px solid #ffffff;
+    padding: 1px;
     margin: 5px;
+    font-size: 100%;
 }
 
 .login-button:hover{
