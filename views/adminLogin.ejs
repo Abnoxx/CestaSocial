@@ -4,12 +4,12 @@
             <div class="col-lg">
                 <form action="/admin/solicitacoes/listagem" method="post">
                     <h1 class="title">Login Administrador</h1>
+                    <label for="">Email:</label>
                         <div class="form-group">
-                            <label for="">Email:</label>
                             <input type="email" id="email" name="email" placeholder="Insira o email de administrador:" required>
                         </div>
+                        <label for="">Senha:</label>
                         <div class="form-group">
-                            <label for="">Senha:</label>
                             <input type="password" id="passcode" name="passcode" placeholder="Insira a senha de administrador:" required>
                         </div>
                         <% if (erro) { %>

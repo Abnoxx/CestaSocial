@@ -1,5 +1,4 @@
 require('dotenv').config()
-
 //variáveis
 const express = require("express");
 const expressLayouts = require("express-ejs-layouts");

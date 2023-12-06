@@ -1,6 +1,5 @@
 const Solicitacao = require("../models/Solicitar");
 
-
 function getSolicitar(req, res, app) {
     app.set('layout', './layouts/default/solicitar');
     res.render('layouts/default/solicitar', { erro: null });
@@ -23,6 +22,7 @@ function getSolicitar(req, res, app) {
         Solicitacao.create({ nome, cpf, telefone, endereco, numeroDependentes, rendaMensal})
         .then(() => {
             res.redirect("/home");
+
         })
     }
 }
